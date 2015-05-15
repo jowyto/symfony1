@@ -407,7 +407,7 @@ class sfWebResponse extends sfResponse
   protected function normalizeHeaderName($name)
   {
     $callback = function($matches){
-      return "'-'.strtoupper('\\1')";
+      return '-'.strtoupper($matches[1]);
     };
     return preg_replace_callback('/\-(.)/', $callback, strtr(ucfirst(strtolower($name)), '_', '-'));
   }
